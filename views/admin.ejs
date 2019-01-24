@@ -1,0 +1,248 @@
+<!-- // Authors: Alejandro Elizondo 1155123257, Ubaydullo Rustami 1155102622, Andres Tamez 1155123046 -->
+
+
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+
+  <title> admin </title>
+  <script src="js/admin.js"></script>
+</head>
+<body>
+  <nav class="navbar navbar-dark bg-primary sticky-top">
+    <a class="navbar-brand ml-auto">Admin</a>
+
+    <form action="/logout" method="get">
+      <button type="submit" class="btn btn-success">Log Out</button>
+    </form>
+  </nav>
+  <h1 style="text-align: center; padding-top: 15px;"> Admin </h1>
+
+  <div class="row mt-5 mb-5">
+    <div class="col-md-2 col-l-2">
+    </div>
+    <div class="col-md-4 col-l-4">
+      <h3>Add Activities</h3>
+      <form>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Name of the activity</label>
+          <input type="text" class="form-control" name="aName" placeholder="enter name" id="actName">
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Schedule</label>
+          <input type="text" class="form-control" name="schedule" placeholder="schedule" id="actSchedule">
+          <small id="emailHelp" class="form-text text-muted">The format of entry is dd/mm/yyyy</small>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Name of the organization</label>
+          <input type="text" class="form-control" name="oName" placeholder="enter name" id="actOrg">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Location</label>
+          <input type="text" class="form-control" name="lName" placeholder="enter name" id="actLoc">
+        </div>
+        <div class="form-group form-check">
+          <input type="checkbox" class="form-check-input" name="charity" id="actCharity" value = 0>
+          <label class="form-check-label" for="exampleCheck1">Charitable?</label>
+        </div>
+
+        <button type="button" class="btn btn-primary" id="addActivity">Submit</button>
+        <fieldset>
+          <legend>Upload your CSV File</legend>
+          <input type="file" name="File Upload" id="txtFileUpload" accept=".csv" />
+          <small id="emailHelp" class="form-text text-muted">Format: Name,Schedule,Organization,Location,TrueOrFalse</small>
+        </fieldset>
+      </form>
+    </div>
+    <div class="col-md-4 col-l-4">
+      <h3>Update an Activity</h3>
+      <form action="/aUpdate" method="post">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Name of the activity that you want to update</label>
+          <input type="text" class="form-control" name="upEvent" placeholder="enter name">
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Date of the activity that you want to update</label>
+          <input type="text" class="form-control" name="upSchedule" placeholder="enter schedule">
+        </div>
+
+        <div class="form-group">
+          <label for="exampleInputEmail1">Date of the activity that you want to update</label>
+          <input type="text" class="form-control" name="upOName" placeholder="enter organization name">
+        </div>
+
+        <div class="form-group">
+          <label for="exampleInputEmail1">Location of activity that you want to update</label>
+          <input type="text" class="form-control" name="upLName" placeholder="enter location">
+        </div>
+
+
+        <div class="form-group">
+          <label for="exampleInputEmail1">Change name</label>
+          <input type="text" class="form-control" name="aChangeName" placeholder="enter name">
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Change Schedule</label>
+          <input type="text" class="form-control" name="changeSchedule" placeholder="schedule">
+          <small id="emailHelp" class="form-text text-muted">The format of entry is dd/mm/yyyy</small>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Change the Name of the organization</label>
+          <input type="text" class="form-control" name="changeOName" placeholder="enter name">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Update Location</label>
+          <input type="text" class="form-control" name="changeLName" placeholder="enter name">
+        </div>
+        <div class="form-group form-check">
+          <input type="checkbox" class="form-check-input" name="changeCharity" value = 1>
+          <label class="form-check-label" for="exampleCheck1">Charitable?</label>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+    <div class="col-md-2 col-l-2">
+
+    </div>
+
+  </div>
+  <div class="row mb-5">
+    <div class="col-md-2 col-l-2">
+
+    </div>
+    <div class="col-md-4 col-l-4 m-3">
+      <h3>Delete an Activity</h3>
+      <form action="/aDelete" method="post">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Name of the activity</label>
+          <input type="text" class="form-control" name="dEvent" placeholder="enter name">
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Schedule</label>
+          <input type="text" class="form-control" name="dSchedule" placeholder="schedule">
+          <small id="emailHelp" class="form-text text-muted">The format of entry is dd/mm/yyyy</small>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Name of the organization</label>
+          <input type="text" class="form-control" name="dOname" placeholder="enter name">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Location</label>
+          <input type="text" class="form-control" name="dLname" placeholder="enter name">
+        </div>
+        <div class="form-group form-check">
+          <input type="checkbox" class="form-check-input" name="dCharity" value = 1>
+          <label class="form-check-label" for="exampleCheck1">Charitable?</label>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+
+    <div class="col-md-4 col-l-4">
+      <h3 style="color: red;">Flush Data</h3>
+      <form >
+        <button id="flush" type="button" class="btn btn-danger">Flush</button>
+      </form>
+
+
+    <h3>List all Activities</h3>
+      <form action="/eventlist" method="get">
+        <button type="submit" class="btn btn-primary">List Activities</button>
+      </form>
+
+
+    </div>
+    <div class="col-md-2 col-l-2">
+
+    </div>
+  </div>
+
+  <div class="row mt-5 mb-5">
+    <div class="col-md-2 col-l-2">
+
+    </div>
+    <div class="col-md-4 col-l-4">
+      <h3>Add User</h3>
+      <form action="/user" method="post">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Username of the user</label>
+          <input type="text" class="form-control" name="uName" placeholder="enter name">
+        </div>
+        <div class="form-group">
+          <label for="psw"><b>Password</b></label>
+          <input type="password" class="form-control" placeholder="Enter Password" name="upsw" required>
+        </div>
+        <div class="form-group form-check">
+          <input type="checkbox" class="form-check-input" name="adm" value = 1>
+          <label class="form-check-label" for="exampleCheck1">Admin?</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+    <div class="col-md-4 col-l-4">
+      <h3>Update User Information</h3>
+      <form action="/uUpdate" method="post">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Enter the username of the user that you want to edit</label>
+          <input type="text" class="form-control" name="upUser" placeholder="enter name">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Enter the new username</label>
+          <input type="text" class="form-control" name="uChangeName" placeholder="enter name">
+        </div>
+        <div class="form-group">
+          <label for="psw"><b>New Password</b></label>
+          <input type="password" class="form-control" placeholder="Enter Password" name="uChangePassword" required>
+        </div>
+
+        <div class="form-group form-check">
+          <input type="checkbox" class="form-check-input" name="uChangeAdm" value = 1>
+          <label class="form-check-label" for="exampleCheck1">Admin?</label>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+    <div class="col-md-2 col-l-2">
+
+    </div>
+  </div>
+
+
+  <div class="row mt-5 mb-5">
+    <div class="col-md-2 col-l-2">
+
+    </div>
+    <div class="col-md-4 col-l-4">
+      <h3>Delete User</h3>
+      <form action="/uDelete" method="post">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Username of the user</label>
+          <input type="text" class="form-control" name="dUser" placeholder="enter name">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+    <div class="col-md-4 col-l-4">
+      <h3>List all Users</h3>
+      <form action="/userlist" method="get">
+        <button type="submit" class="btn btn-primary">List Users</button>
+      </form>
+    </div>
+
+    <div class="col-md-2 col-l-2">
+
+    </div>
+  </div>
+</body>
+</html>

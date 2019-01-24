@@ -1,0 +1,14 @@
+<!-- // Authors: Alejandro Elizondo 1155123257, Ubaydullo Rustami 1155102622, Andres Tamez 1155123046 -->
+
+
+<nav class="navbar navbar-dark bg-primary sticky-top">
+	<form class="mr-auto" action="/home" method="get">
+		<button type="submit" class="btn btn-link" style="color: white; text-decoration: none">Home</button>
+	</form>
+	<form class="ml-auto" action="/favorites" method="get">
+		<button type="submit" class="btn btn-link" style="color: white; text-decoration: none"><%= user %></button>
+	</form>
+	<form action="/logout" method="get">
+		<button type="submit" class="btn btn-success">Log Out</button>
+	</form>
+</nav>

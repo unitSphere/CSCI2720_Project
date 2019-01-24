@@ -1,0 +1,20 @@
+/* // Authors: Alejandro Elizondo 1155123257, Ubaydullo Rustami 1155102622, Andres Tamez 1155123046 */
+
+
+body {
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+th,td {
+	text-align: center;
+}
+
+tr:hover:not(.selected) {
+	background-color: #f6f6f5;
+}
+
+#events{
+	display:none;
+	overflow-y:scroll;
+	height: 500px;
+}

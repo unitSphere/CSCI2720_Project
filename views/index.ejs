@@ -1,0 +1,83 @@
+<!-- // Authors: Alejandro Elizondo 1155123257, Ubaydullo Rustami 1155102622, Andres Tamez 1155123046 -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="Final Project" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<title>Home</title>
+	<script src="js/useractions.js"></script>
+</head>
+<body>
+	<%- include("navbar") -%>
+	<section class="container-fluid" style="padding-top: 35px">
+		<div class="container-fluid table-responsive" style="padding-left:40px; padding-right: 40px">
+			<h2>Events</h2>
+			<hr>
+			<table id="events" class="table display responsive" width="100%">
+				<thead class="thead-dark"">
+					<tr>
+						<th onclick="sortTable()" scope="col">#</th>
+						<th onclick="sort(1)" scope="col">Activity</th>
+						<th onclick="sort(2)" scope="col">Date</th>
+						<th onclick="sort(3)" scope="col">Organization</th>
+						<th onclick="sort(4)" scope="col">Location</th>
+						<th onclick="sort(5)" scope="col">Charitable</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% for (var i = 0; i < activities.length; i++) { %>
+					<tr>
+						<td> <%= i + 1 %> </td>
+						<td> <%= activities[i][0] %> </td>	<!-- Activity name -->
+						<td> <%= activities[i][1] %> </td>	<!-- Activity schedule -->
+						<td> <%= activities[i][2] %> </td>	<!-- Organization name -->
+						<td> <%= activities[i][3] %> </td>	<!-- Location name -->
+						<td> <%= activities[i][4] %> </td>	<!-- Charitable -->
+					</tr>
+					<% } %>
+				</tbody>
+				<tfoot>
+					<tr>
+						<th>#</th>
+						<th>Activity</th>
+						<th>Date</th>
+						<th>Organization</th>
+						<th>Location</th>
+						<th>Charitable</th>
+					</tr>
+				</tfoot>
+			</table>
+			<div class="container-fluid">
+				<div class="row">
+					<button type="button" class="btn btn-primary colsm-3" id="add">Add to favorites</button>
+					<form action="/event" method="get" class="col-sm-1 col-sm-offset-1" onsubmit="return selectFirst(event)">
+						<button type="submit" class="btn btn-primary" id="view">View Event</button>
+						<input type="hidden" name="id" style="display: block;" id="hiddenText" required>
+					</form>
+					<form action="/about" method="get" class="col-sm-2">
+						<button type="submit" class="btn btn-primary" id="view">About Section</button>
+						<input type="hidden" name="id" style="display: block;" id="hiddenText" required>
+					</form>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="container-fluid" style="padding-top: 35px">
+
+	</section>
+
+</body>
+</html>
