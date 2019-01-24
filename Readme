@@ -1,3 +1,40 @@
+CSCI2720 Project The Chinese University of Hong Kong
+
+Developed by:
+
+Andres Tamez
+Alejandro Elizondo
+Rustami Ubaydullo
+
+How To:
+1. Install Node:  https://nodejs.org/en/download/package-manager/
+
+2. Open Terminal and install all these dependencies (the same folder as the project):
+
+        npm install bycrypt.js
+        npm install cookie-parser
+        npm install ejs
+        npm install express
+        npm install express-session
+        npm install mongodb
+        npm install mongoose
+        npm install nodemon
+        npm install passport
+        npm install request
+
+3. Type node server.js in Terminal.
+
+4. Go to "http://localhost:3000/" in your browser
+
+5. To see admin actions navigate to
+
+    "http://localhost:3000/admin"
+    
+
+
+
+
+
 The Chinese University of Hong Kong places very high importance on honesty in academic work submitted by students, and adopts a policy of zero tolerance on academic dishonesty. While "academic dishonesty" is the overall name, there are several sub-categories as follows:
 
 (i)	Plagiarism
